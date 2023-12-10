@@ -37,26 +37,26 @@
         "name": "PartitionedCall/transpose",
         "op": "Const",
         "attr": {
+          "dtype": { "type": "DT_FLOAT" },
           "value": {
             "tensor": {
               "dtype": "DT_FLOAT",
               "tensorShape": { "dim": [{ "size": "19" }, { "size": "64" }] }
             }
-          },
-          "dtype": { "type": "DT_FLOAT" }
+          }
         }
       },
       {
         "name": "PartitionedCall/mul_1",
         "op": "Const",
         "attr": {
+          "dtype": { "type": "DT_FLOAT" },
           "value": {
             "tensor": {
               "dtype": "DT_FLOAT",
               "tensorShape": { "dim": [{ "size": "64" }] }
             }
-          },
-          "dtype": { "type": "DT_FLOAT" }
+          }
         }
       },
       {
@@ -76,13 +76,13 @@
         "name": "PartitionedCall/mul_3",
         "op": "Const",
         "attr": {
+          "dtype": { "type": "DT_FLOAT" },
           "value": {
             "tensor": {
               "dtype": "DT_FLOAT",
               "tensorShape": { "dim": [{ "size": "64" }] }
             }
-          },
-          "dtype": { "type": "DT_FLOAT" }
+          }
         }
       },
       {
@@ -102,119 +102,47 @@
         "name": "PartitionedCall/mul_5",
         "op": "Const",
         "attr": {
+          "dtype": { "type": "DT_FLOAT" },
           "value": {
             "tensor": {
               "dtype": "DT_FLOAT",
               "tensorShape": { "dim": [{ "size": "64" }] }
             }
-          },
-          "dtype": { "type": "DT_FLOAT" }
+          }
         }
       },
       {
         "name": "PartitionedCall/transpose_3",
         "op": "Const",
         "attr": {
+          "dtype": { "type": "DT_FLOAT" },
           "value": {
             "tensor": {
               "dtype": "DT_FLOAT",
               "tensorShape": { "dim": [{ "size": "64" }, { "size": "1" }] }
             }
-          },
-          "dtype": { "type": "DT_FLOAT" }
+          }
         }
       },
       {
         "name": "PartitionedCall/mul_7",
         "op": "Const",
         "attr": {
+          "dtype": { "type": "DT_FLOAT" },
           "value": {
             "tensor": {
               "dtype": "DT_FLOAT",
               "tensorShape": { "dim": [{ "size": "1" }] }
             }
-          },
-          "dtype": { "type": "DT_FLOAT" }
-        }
-      },
-      {
-        "name": "PartitionedCall/onnx_tf_prefix_/Constant_1",
-        "op": "Const",
-        "attr": {
-          "value": {
-            "tensor": {
-              "dtype": "DT_INT64",
-              "tensorShape": { "dim": [{ "size": "2" }] }
-            }
-          },
-          "dtype": { "type": "DT_INT64" }
-        }
-      },
-      {
-        "name": "PartitionedCall/Where_1",
-        "op": "Const",
-        "attr": {
-          "value": {
-            "tensor": {
-              "dtype": "DT_INT64",
-              "tensorShape": { "dim": [{}, { "size": "1" }] }
-            }
-          },
-          "dtype": { "type": "DT_INT64" }
-        }
-      },
-      {
-        "name": "PartitionedCall/Cast_1",
-        "op": "Const",
-        "attr": {
-          "value": {
-            "tensor": {
-              "dtype": "DT_INT64",
-              "tensorShape": { "dim": [{ "size": "1" }] }
-            }
-          },
-          "dtype": { "type": "DT_INT64" }
-        }
-      },
-      {
-        "name": "PartitionedCall/GatherV2_1",
-        "op": "Const",
-        "attr": {
-          "value": {
-            "tensor": { "dtype": "DT_INT64", "tensorShape": { "dim": [{}] } }
-          },
-          "dtype": { "type": "DT_INT64" }
-        }
-      },
-      {
-        "name": "PartitionedCall/zeros_1",
-        "op": "Const",
-        "attr": {
-          "value": { "tensor": { "dtype": "DT_INT64", "tensorShape": {} } },
-          "dtype": { "type": "DT_INT64" }
+          }
         }
       },
       {
         "name": "input",
         "op": "Placeholder",
         "attr": {
-          "shape": { "shape": { "dim": [{ "size": "1" }, { "size": "19" }] } },
-          "dtype": { "type": "DT_FLOAT" }
-        }
-      },
-      {
-        "name": "PartitionedCall/SparseToDense_1",
-        "op": "SparseToDense",
-        "input": [
-          "PartitionedCall/Where_1",
-          "PartitionedCall/Cast_1",
-          "PartitionedCall/GatherV2_1",
-          "PartitionedCall/zeros_1"
-        ],
-        "attr": {
-          "Tindices": { "type": "DT_INT64" },
-          "T": { "type": "DT_INT64" },
-          "validate_indices": { "b": true }
+          "dtype": { "type": "DT_FLOAT" },
+          "shape": { "shape": { "dim": [{ "size": "1" }, { "size": "19" }] } }
         }
       },
       {
@@ -227,15 +155,6 @@
         }
       },
       {
-        "name": "PartitionedCall/add_5",
-        "op": "AddV2",
-        "input": [
-          "PartitionedCall/onnx_tf_prefix_/Constant_1",
-          "PartitionedCall/SparseToDense_1"
-        ],
-        "attr": { "T": { "type": "DT_INT64" } }
-      },
-      {
         "name": "PartitionedCall/onnx_tf_prefix_/layers/layers.1/Relu",
         "op": "_FusedMatMul",
         "input": [
@@ -245,13 +164,13 @@
         ],
         "device": "/device:CPU:0",
         "attr": {
-          "transpose_a": { "b": false },
           "transpose_b": { "b": false },
           "fused_ops": { "list": { "s": ["Qmlhc0FkZA==", "UmVsdQ=="] } },
-          "num_args": { "i": "1" },
-          "leakyrelu_alpha": { "f": 0.2 },
           "epsilon": { "f": 0.0 },
-          "T": { "type": "DT_FLOAT" }
+          "leakyrelu_alpha": { "f": 0.2 },
+          "T": { "type": "DT_FLOAT" },
+          "transpose_a": { "b": false },
+          "num_args": { "i": "1" }
         }
       },
       {
@@ -264,12 +183,12 @@
         ],
         "device": "/device:CPU:0",
         "attr": {
-          "transpose_a": { "b": false },
-          "transpose_b": { "b": false },
-          "fused_ops": { "list": { "s": ["Qmlhc0FkZA==", "UmVsdQ=="] } },
-          "num_args": { "i": "1" },
-          "leakyrelu_alpha": { "f": 0.2 },
           "epsilon": { "f": 0.0 },
+          "fused_ops": { "list": { "s": ["Qmlhc0FkZA==", "UmVsdQ=="] } },
+          "transpose_a": { "b": false },
+          "leakyrelu_alpha": { "f": 0.2 },
+          "num_args": { "i": "1" },
+          "transpose_b": { "b": false },
           "T": { "type": "DT_FLOAT" }
         }
       },
@@ -283,17 +202,17 @@
         ],
         "device": "/device:CPU:0",
         "attr": {
-          "transpose_a": { "b": false },
           "transpose_b": { "b": false },
-          "fused_ops": { "list": { "s": ["Qmlhc0FkZA==", "UmVsdQ=="] } },
+          "transpose_a": { "b": false },
           "leakyrelu_alpha": { "f": 0.2 },
           "num_args": { "i": "1" },
+          "fused_ops": { "list": { "s": ["Qmlhc0FkZA==", "UmVsdQ=="] } },
           "epsilon": { "f": 0.0 },
           "T": { "type": "DT_FLOAT" }
         }
       },
       {
-        "name": "PartitionedCall/add_4",
+        "name": "PartitionedCall/add_3",
         "op": "_FusedMatMul",
         "input": [
           "PartitionedCall/onnx_tf_prefix_/layers/layers.5/Relu",
@@ -302,28 +221,19 @@
         ],
         "device": "/device:CPU:0",
         "attr": {
-          "transpose_a": { "b": false },
-          "transpose_b": { "b": false },
           "fused_ops": { "list": { "s": ["Qmlhc0FkZA=="] } },
           "num_args": { "i": "1" },
           "leakyrelu_alpha": { "f": 0.2 },
+          "transpose_b": { "b": false },
+          "transpose_a": { "b": false },
           "epsilon": { "f": 0.0 },
           "T": { "type": "DT_FLOAT" }
         }
       },
       {
-        "name": "PartitionedCall/onnx_tf_prefix_/Reshape_1",
-        "op": "Reshape",
-        "input": ["PartitionedCall/add_4", "PartitionedCall/add_5"],
-        "attr": {
-          "T": { "type": "DT_FLOAT" },
-          "Tshape": { "type": "DT_INT64" }
-        }
-      },
-      {
         "name": "Identity",
         "op": "Identity",
-        "input": ["PartitionedCall/onnx_tf_prefix_/Reshape_1"],
+        "input": ["PartitionedCall/add_3"],
         "attr": { "T": { "type": "DT_FLOAT" } }
       }
     ],
@@ -342,44 +252,91 @@
         {
           "name": "PartitionedCall/transpose",
           "shape": [19, 64],
-          "dtype": "float32"
+          "dtype": "float32",
+          "quantization": {
+            "dtype": "uint8",
+            "min": -0.42161629620720353,
+            "scale": 0.0031940628500545724,
+            "original_dtype": "float32"
+          }
         },
-        { "name": "PartitionedCall/mul_1", "shape": [64], "dtype": "float32" },
+        {
+          "name": "PartitionedCall/mul_1",
+          "shape": [64],
+          "dtype": "float32",
+          "quantization": {
+            "dtype": "uint8",
+            "min": -0.23246545329982157,
+            "scale": 0.002132710580732308,
+            "original_dtype": "float32"
+          }
+        },
         {
           "name": "PartitionedCall/transpose_1",
           "shape": [64, 64],
-          "dtype": "float32"
+          "dtype": "float32",
+          "quantization": {
+            "dtype": "uint8",
+            "min": -0.3298742850621541,
+            "scale": 0.0025974353154500323,
+            "original_dtype": "float32"
+          }
         },
-        { "name": "PartitionedCall/mul_3", "shape": [64], "dtype": "float32" },
+        {
+          "name": "PartitionedCall/mul_3",
+          "shape": [64],
+          "dtype": "float32",
+          "quantization": {
+            "dtype": "uint8",
+            "min": -0.1387531714112151,
+            "scale": 0.0011373210771411073,
+            "original_dtype": "float32"
+          }
+        },
         {
           "name": "PartitionedCall/transpose_2",
           "shape": [64, 64],
-          "dtype": "float32"
+          "dtype": "float32",
+          "quantization": {
+            "dtype": "uint8",
+            "min": -0.2673662003348855,
+            "scale": 0.002700668690251369,
+            "original_dtype": "float32"
+          }
         },
-        { "name": "PartitionedCall/mul_5", "shape": [64], "dtype": "float32" },
+        {
+          "name": "PartitionedCall/mul_5",
+          "shape": [64],
+          "dtype": "float32",
+          "quantization": {
+            "dtype": "uint8",
+            "min": -0.12267266427185021,
+            "scale": 0.0010138236716681836,
+            "original_dtype": "float32"
+          }
+        },
         {
           "name": "PartitionedCall/transpose_3",
           "shape": [64, 1],
-          "dtype": "float32"
+          "dtype": "float32",
+          "quantization": {
+            "dtype": "uint8",
+            "min": -0.18206403010031755,
+            "scale": 0.0018390306070739148,
+            "original_dtype": "float32"
+          }
         },
-        { "name": "PartitionedCall/mul_7", "shape": [1], "dtype": "float32" },
         {
-          "name": "PartitionedCall/onnx_tf_prefix_/Constant_1",
-          "shape": [2],
-          "dtype": "int32"
-        },
-        {
-          "name": "PartitionedCall/Where_1",
-          "shape": [0, 1],
-          "dtype": "int32"
-        },
-        { "name": "PartitionedCall/Cast_1", "shape": [1], "dtype": "int32" },
-        {
-          "name": "PartitionedCall/GatherV2_1",
-          "shape": [0],
-          "dtype": "int32"
-        },
-        { "name": "PartitionedCall/zeros_1", "shape": [], "dtype": "int32" }
+          "name": "PartitionedCall/mul_7",
+          "shape": [1],
+          "dtype": "float32",
+          "quantization": {
+            "dtype": "uint8",
+            "min": 0.12623915076255798,
+            "scale": 1.0,
+            "original_dtype": "float32"
+          }
+        }
       ]
     }
   ]
